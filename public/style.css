@@ -1,0 +1,329 @@
+* {
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    color: var(--black);
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    color: var(--black);
+    text-decoration: none;
+}
+
+:root {
+    --yellow: rgb(255, 255, 100);
+    --black: rgb(18, 18, 18);
+    --white: rgb(255, 255, 255);
+}
+
+
+/* HEADER COMPONENT */
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--yellow);
+    padding: 0 15px;
+    height: 41px;
+}
+
+.header-logo {
+    font-size: 24px;
+    font-weight: 700;
+}
+
+.header-navbar {
+    display: flex;
+    align-items: center;
+}
+
+.header-navbar-item {
+    font-weight: 600;
+    font-size: 16px;
+    margin: 0 15px;
+}
+
+/* MAIN COMPONENT */
+
+.container {
+    max-width: 1200px;
+    padding: 15px;
+    margin: 0 auto;
+    min-height: calc(100vh - 82px);
+}
+
+/* SEARCH COMPONENT */
+
+.search-wrapper {
+    text-align: center;
+}
+
+.search-input {
+    width: 400px;
+    text-align: center;
+    padding: 5px 15px;
+    font-size: 24px;
+    font-weight: bold;
+    border: 3px solid var(--black);
+}
+
+.search-value-songs {
+    width: 200px;
+    font-size: 20px;
+    margin: 0 10px;
+}
+
+.search-songs-pages {
+    width: 200px;
+    font-size: 20px;
+    text-align: center;
+}
+
+.seacrh-play-button {
+    padding: 5px 15px;
+    font-size: 36px;
+    font-weight: bold;
+    background-color: var(--yellow);
+    color: var(--black);
+    border: 3px var(--black) solid;
+}
+
+.seacrh-play-button:hover {
+    background-color: var(--black);
+    color: var(--white);
+}
+
+.search-loading {
+    font-size: 24px;
+    margin: 0;
+}
+
+/* PLAYGROUND COMPONENT */
+
+.playground {
+    
+}
+
+.playground-lyrics {
+    display: flex;
+    flex-direction: column;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.playground-lyrics-word-wrapper-row {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.playground-lyrics-word {
+    font-size: 16px;
+    user-select: none;
+    background-color: var(--black);
+    border-radius: 10px;
+    padding: 0px 10px;
+    margin: 1px;
+}
+
+.playground-start-game {
+    text-align: center;
+    font-size: 48px;
+}
+
+/* GUESSER COMPONENT */
+
+.playground-guesser {
+    text-align: center;
+    margin-bottom: 50px;
+    
+}
+
+.playground-guesser-input {
+    width: 400px;
+    text-align: center;
+    padding: 5px 15px;
+    font-size: 24px;
+    font-weight: bold;
+    border: 3px solid var(--black);
+}
+
+.playground-guesser-input-song {
+    
+}
+
+/* PROGRESSBAR COMPONENT */
+
+.playground-progress {
+    background-color: var(--black);
+    border-radius: 20px; 
+    padding: 4px;
+    max-width: 600px;
+    margin: 0 auto;
+    margin-bottom: 20px;
+}
+
+.playground-progress > div {
+    background-color: var(--yellow);
+    text-align: center;
+    line-height: 1;
+    height: 16px;
+    border-radius: 10px;
+}
+
+/* WIN MODAL */
+
+.playground-win-modal {
+    width: 100%;
+    height: 100%;
+    color: var(--white);
+}
+
+.playground-win-modal-content {
+    text-align: center;
+    color: var(--white);
+}
+
+.playground-win-modal-content-congrats {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+}
+
+.playground-win-modal-content-image {
+    width: 300px;
+}
+
+.playground-win-modal-content-author {
+    font-size: 32px;
+}
+
+.playground-win-modal-content-song {
+    font-size: 24px;
+}
+
+.playground-win-modal-content-url {
+    font-size: 20px;
+}
+
+.playground-win-modal-content-url a:hover {
+    font-weight: bold;
+}
+
+.playground-win-modal-content-again {
+    margin-top: 50px;
+    padding: 5px 15px;
+    font-size: 24px;
+    font-weight: bold;
+    background-color: var(--yellow);
+    color: var(--black);
+    border: 3px var(--black) solid;
+}
+
+.playground-win-modal-content-again:hover {
+    background-color: var(--black);
+    color: var(--white);
+}
+
+/* MODAL INFO */
+
+.info-button-wrapper {
+    text-align: right;
+}
+
+.info-button {
+    background-color: var(--yellow);
+    font-size: 18px;
+    font-weight: 700;
+    border-radius: 100%;
+    line-height: 1;
+    padding: 5px 12px;
+    border: 3px solid var(--black);
+}
+
+.info-button:hover {
+    background-color: var(--black);
+    color: var(--white);
+}
+
+.info-modal-content-close {
+    float: right;
+    background-color: var(--black);
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 1;
+    border: none;
+    color: var(--white);
+}
+
+.info-modal-content-close:hover {
+    color: var(--yellow);
+}
+
+.info-modal {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.info-modal-content {
+    padding: 15px;
+    position: fixed;
+    background-color: var(--black);
+    top: 80px;
+    width: 700px;
+    height: 700px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.info-modal-content-title {
+    color: var(--yellow);
+    font-size: 56px;
+    margin-top: 0;
+    margin-bottom: 50px;
+}
+
+
+.info-modal-content-main-info {
+
+}
+
+.info-modal-content-main-info p {
+    color: var(--white);
+    font-size: 18px;
+}
+
+.info-modal-content-post-info p {
+    color: var(--white);
+    font-size: 18px;
+}
+
+.info-modal-content-post-info-url {
+    color: var(--white);
+}
+
+.info-modal-content-post-info-url:hover {
+    color: var(--yellow);
+}
+
+/* FOOTER COMPONENT*/
+
+.footer {
+    height: 41px;
+    background-color: var(--yellow);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.footer-git-url {
+    line-height: 1;
+}
+
+.footer-git-url img {
+    height: 32px;
+}
