@@ -29,7 +29,7 @@ export default function Search(props: any) {
 
     async function getText() {
         try {
-          let textArray = await axios.get(`https://songuess.fun/api?text=${text}&sort=${sort}&perPage=${perPage}`);
+          let textArray = await axios.get(`http://localhost:5000/api?text=${text}&sort=${sort}&perPage=${perPage}`);
           return textArray;
         } catch (err) {
           console.log(err);
