@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useMemo, useState } from 'react'
 import WordWrapper from './WordWrapper'
 import Guesser from './Guesser';
 import ProgressBar from './ProgressBar';
@@ -16,7 +16,14 @@ export default function PlayGround(props: { data: any, setIsStarted: any, isStar
   const [isCheckGuessSong, setIsCheckGuessSong] = useState(false);
   const [progressBar, setProgressBar] = useState(0);
   const [progressBarMaxWidth, setProgressBarMaxWidth] = useState(0);
-  const [guessedSongs, setGuessedSongs] = useState<string[]>(['']);
+  // const [guessedWords, setGuessedWords] = useState<string[]>(['']);
+  const [isEasier, setIsEasier] = useState(false);
+  const [isConcide, setIsConcide] = useState(false);
+  const [isEasierProgress, setIsEasierProgress] = useState(false);
+
+  let progressBarEasier = 0;
+  const guessedWords = useMemo(() => [''], []);
+  const guessedWordsEasier = useMemo(() => [], []);
   
   useEffect(() => {
     if (data) {
@@ -59,10 +66,25 @@ export default function PlayGround(props: { data: any, setIsStarted: any, isStar
     }
   }
 
+  if (isEasierProgress) {
+    for (let i = 0; i < guessedWordsEasier.length; i++) {
+      let percentage = 0;
+      let word = guessedWordsEasier[i];
+      if (Object.keys(dictAllWords).includes(word) && !(guessedWords?.includes(word))) {
+        let wordCount = dictAllWords[word];
+        percentage = ((1 * wordCount) / (progressBarMaxWidth)) * 100;
+        progressBarEasier += percentage;
+      }
+    }
+    guessedWords.push(...guessedWordsEasier);
+    setProgressBar(progressBar + progressBarEasier);
+    setIsEasierProgress(false);
+  }
+
   return (
     <div className='playground'>
       {isCheckGuessSong === false ? (
-        isStarted ? <Guesser setGuessText={setGuessText} guessText={guessText} setIsCheckGuess={setIsCheckGuess} title={title} setIsCheckGuessSong={setIsCheckGuessSong} /> : ''
+        isStarted ? <Guesser setGuessText={setGuessText} guessText={guessText} setIsCheckGuess={setIsCheckGuess} title={title} setIsCheckGuessSong={setIsCheckGuessSong} setIsEasier={setIsEasier} setIsConcide={setIsConcide} setIsEasierProgress={setIsEasierProgress} /> : ''
       ) : (
         ''
       )
@@ -72,14 +94,16 @@ export default function PlayGround(props: { data: any, setIsStarted: any, isStar
         <div className="playground-lyrics">
         {isStarted ? (
           lyrics?.map((item, index) => {
-            return <WordWrapper key={index} lyricsRow={item} guessText={guessText} isCheckGuess={isCheckGuess} progressBar={progressBar} setProgressBar={setProgressBar} progressBarMaxWidth={progressBarMaxWidth} guessedSongs={guessedSongs} setGuessedSongs={setGuessedSongs} dictAllWords={dictAllWords}/>
+            return <WordWrapper key={index} lyricsRow={item} guessText={guessText} isCheckGuess={isCheckGuess} progressBar={progressBar} setProgressBar={setProgressBar} progressBarMaxWidth={progressBarMaxWidth} guessedWords={guessedWords}  dictAllWords={dictAllWords} isEasier={isEasier} guessedWordsEasier={guessedWordsEasier}/>
+            // setGuessedWords={setGuessedWords} 
+            
           })
         ) : (
           <p className='playground-start-game'></p>
         )}
         </div>
         ) : (
-          <ModalWin image={image} author={author} title={title} url={url} />
+          <ModalWin image={image} author={author} title={title} url={url} isConcide={isConcide} />
         )
       }
     </div>

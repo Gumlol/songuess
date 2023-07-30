@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import axios from 'axios'
 
 export default function Search(props: any) {
-    const [perPage, setPerPage] = useState(50);
+    const [perPage, setPerPage] = useState(25);
     const [sort, setSort] = useState('popularity');
     const [text, setText] = useState('');
     const [disabled, setDisabled] = useState(false);
@@ -29,7 +29,7 @@ export default function Search(props: any) {
 
     async function getText() {
         try {
-          let textArray = await axios.get(`http://localhost:5000/?text=${text}&sort=${sort}&perPage=${perPage}`);
+          let textArray = await axios.get(`https://songuess.fun/api?text=${text}&sort=${sort}&perPage=${perPage}`);
           return textArray;
         } catch (err) {
           console.log(err);

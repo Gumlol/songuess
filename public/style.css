@@ -1,3 +1,7 @@
+#root {
+    
+}
+
 * {
     box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
@@ -152,8 +156,44 @@ a {
     border: 3px solid var(--black);
 }
 
+.playground-guesser-input-button {
+    display: none;
+}
+
 .playground-guesser-input-song {
     
+}
+
+.playground-guesser-input-song-button {
+    display: none;
+}
+
+.playground-guesser-button-easier {
+    background-color: var(--yellow);
+    border: 3px solid var(--black);
+    padding: 5px 15px;
+    font-size: 24px;
+    font-weight: bold;
+    margin-top: 1em;
+}
+
+.playground-guesser-button-easier:hover {
+    background-color: var(--black);
+    color: var(--white);
+}
+
+.playground-guesser-button-concide {
+    background-color: var(--yellow);
+    border: 3px solid var(--black);
+    padding: 5px 15px;
+    font-size: 24px;
+    font-weight: bold;
+    margin-top: 1em;
+}
+
+.playground-guesser-button-concide:hover {
+    background-color: var(--black);
+    color: var(--white);
 }
 
 /* PROGRESSBAR COMPONENT */
@@ -289,7 +329,7 @@ a {
 
 
 .info-modal-content-main-info {
-
+    margin-bottom: 100px;
 }
 
 .info-modal-content-main-info p {
@@ -326,4 +366,68 @@ a {
 
 .footer-git-url img {
     height: 32px;
+}
+
+/* ADAPTIVE */
+
+@media screen and (max-width: 700px) {
+    #root {
+        max-width: 700px;
+    }
+
+    .search-input {
+        max-width: 90%;
+        font-size: 16px;
+    }
+
+    .info-button {
+        margin-bottom: 15px;
+    }
+
+    .info-modal {
+        max-width: 95vw;
+        max-height: 95vh;
+    }
+
+    .info-modal-content {
+        max-width: 95vw;
+        max-height: 95vh;
+        overflow: auto;
+    }
+
+    .info-modal-content-title {
+        font-size: 32px;
+        margin-bottom: 30px;
+    }
+
+    .info-modal-content-main-info {
+        margin-bottom: 30px;
+    }
+
+    .info-modal-content-main-info p {
+        font-size: 16px;
+    }
+
+    .info-modal-content-post-info p {
+        font-size: 16px;
+    }
+
+    .playground-guesser-input {
+        max-width: 80%;
+    }
+
+    .playground-guesser-input-button {
+        margin-left: 5px;
+        display: inline;
+        padding: 5px 15px;
+        font-size: 24px;
+        font-weight: bold;
+        border: 3px solid var(--black);
+        background-color: var(--yellow);
+    }
+
+    .playground-guesser-input-song {
+        max-width: 80%;
+    }
+
 }

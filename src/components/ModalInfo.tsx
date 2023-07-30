@@ -27,7 +27,6 @@ export default function ModalInfo() {
                         <p>Вы вводите слова, которые, как вам кажется, могут быть в песне.</p>
                         <p>Когда вам хватит слов, чтобы угадать название песни - вы победили.</p>
                     </div>
-                    <br /><br /><br /><br /><br />
                     <div className="info-modal-content-post-info">
                         <p>P.S. Некоторые слова могут слипаться, а также быть изначально показаны.</p>
                         <p>P.S. Все тексты песен взяты с сайта <a href="https://genius.com/" target='_blank' className='info-modal-content-post-info-url'>genius.com</a></p>

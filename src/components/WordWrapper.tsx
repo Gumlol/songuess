@@ -1,9 +1,9 @@
 import React, { useState } from 'react'
 import Word from './Word'
 
-export default function WordWrapper(props: {lyricsRow: any, guessText: string, isCheckGuess: any, progressBar: any, setProgressBar: any, progressBarMaxWidth: number, guessedSongs: string[], setGuessedSongs: any, dictAllWords: {}}) {
+export default function WordWrapper(props: {lyricsRow: any, guessText: string, isCheckGuess: any, progressBar: any, setProgressBar?: any, progressBarMaxWidth: number, guessedWords: string[], setGuessedWords?: any, dictAllWords: {}, isEasier: any, guessedWordsEasier:any}) {
   let lyrics = props.lyricsRow;
-  const {guessText, isCheckGuess, progressBar,  setProgressBar, progressBarMaxWidth, guessedSongs, setGuessedSongs, dictAllWords} = props;
+  const {guessText, isCheckGuess, progressBar,  setProgressBar, progressBarMaxWidth, guessedWords, setGuessedWords, dictAllWords, isEasier, guessedWordsEasier} = props;
   let encryptedLyrics : string[] = [];
   let allLyrics;
 
@@ -26,7 +26,7 @@ export default function WordWrapper(props: {lyricsRow: any, guessText: string, i
           typeof lyrics === 'string' 
           ? <Word text={lyrics} show={true}/>
           : allLyrics?.map(([lyrics, encryptedLyrics], index) => (
-            <Word key={index} text={lyrics} encryptedLyrics={encryptedLyrics} guessText={guessText} isCheckGuess={isCheckGuess} progressBar={progressBar} setProgressBar={setProgressBar} progressBarMaxWidth={progressBarMaxWidth} guessedSongs={guessedSongs} setGuessedSongs={setGuessedSongs} dictAllWords={dictAllWords}/>
+            <Word key={index} text={lyrics} encryptedLyrics={encryptedLyrics} guessText={guessText} isCheckGuess={isCheckGuess} progressBar={progressBar} setProgressBar={setProgressBar} progressBarMaxWidth={progressBarMaxWidth} guessedWords={guessedWords} setGuessedWords={setGuessedWords} dictAllWords={dictAllWords} isEasier={isEasier} guessedWordsEasier={guessedWordsEasier}/>
           ))
         }
     </div>
