@@ -1,7 +1,11 @@
-echo "Switching to branch main"
-git checkout main
+#!/bin/bash
 
-echo "Deplaying files to server..."
-scp -r build/* www@90.156.209.29:/var/www/90.156.209.29/
+DIRECTORY=/opt/songuess;
 
-echo "Done!"
+cd $DIRECTORY;
+
+docker build -t songuess_frontend $DIRECTORY
+
+docker rm -f songuess_frontend
+
+docker run -d --name songuess_frontend -p 3000:3000 songuess_frontend
